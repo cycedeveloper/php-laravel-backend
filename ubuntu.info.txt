@@ -1,0 +1,58 @@
+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
+
+sudo apt update && sudo apt upgrade && sudo apt install software-properties-common && sudo add-apt-repository ppa:ondrej/php && sudo apt update
+sudo apt install php8.1-fpm
+
+sudo apt install php8.1-common  php8.1-mysql php8.1-gettext php8.1-xml php8.1-xmlrpc php8.1-curl php8.1-gd php8.1-imagick php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring php8.1-opcache php8.1-soap php8.1-zip php8.1-redis php8.1-intl -y
+
+
+sudo nginx -t
+
+sudo service nginx restart
+
+Sayedsoft-33
+
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Sayedsoft-33';
+
+
+Youdex-Network-P-1
+*******
+
+phpmyadmin 
+
+cd /usr/share 
+
+wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
+
+tar xvf phpMyAdmin-latest-all-languages.tar.gz
+
+sudo mv phpMyAdmin-*/ /usr/share/phpmyadmin
+
+add this lines to sites-available/default
+
+location /phpmyadmin {
+    root /usr/share/;
+    index index.php index.html index.htm;
+    location ~ ^/phpmyadmin/(.+\.php)$ {
+        try_files $uri =404;
+        root /usr/share/;
+        fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include /etc/nginx/fastcgi_params;
+    }
+
+    location ~* ^/phpmyadmin/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
+        root /usr/share/;
+    }
+}
+
+sudo service nginx restart
+
+********
+
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+
+

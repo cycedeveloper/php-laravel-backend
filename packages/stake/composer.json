@@ -1,0 +1,54 @@
+{
+    "name": "sayedsoft/stake-token",
+    "description": "Referral income",
+    "keywords": [
+        "sayedsoft",
+        "stake-token"
+    ],
+    "homepage": "https://github.com/sayedsoft/stake-token",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Yaman",
+            "email": "yemen@sayedsoft.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sayedsoft\\StakeToken\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sayedsoft\\StakeToken\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sayedsoft\\StakeToken\\StakeTokenServiceProvider"
+            ],
+            "aliases": {
+                "StakeToken": "Sayedsoft\\StakeToken\\StakeTokenFacade"
+            }
+        }
+    }
+}

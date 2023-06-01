@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "dex-font";
+  src: url('dex-font.eot?t=1660228297602'); /* IE9*/
+  src: url('dex-font.eot?t=1660228297602#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("dex-font.woff2?t=1660228297602") format("woff2"),
+  url("dex-font.woff?t=1660228297602") format("woff"),
+  url('dex-font.ttf?t=1660228297602') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('dex-font.svg?t=1660228297602#dex-font') format('svg'); /* iOS 4.1- */
+}
+
+[class^="dex-font-"], [class*=" dex-font-"] {
+  font-family: 'dex-font' !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.dex-font-usdt:before { content: "\ea01"; }

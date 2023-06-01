@@ -1,0 +1,19 @@
+.dec_num {
+    font-size: 0.6em;
+    opacity: 0.65;
+}
+
+.asset_currency {
+    color: #797979;
+    font-size: 0.6em;
+    font-weight: 200;
+}
+
+.formatted_num {
+    font-size: 1.2em;
+}
+
+.asset_name {
+    font-size: 1.1em;
+}
+

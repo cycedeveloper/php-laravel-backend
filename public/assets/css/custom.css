@@ -1,0 +1,263 @@
+@import "../fonts/youdex-font.css";
+
+.home-slider {
+    box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%);
+    border-radius: .25rem;
+    overflow: hidden;
+    height: 346px;
+    margin-bottom: 24px
+}
+
+.home-slider img {
+    width: 100%;
+    display: block;
+    height: 346px;
+    object-fit: cover
+}
+
+.home-slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    font-size: 0;
+    background-color: transparent;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out
+}
+
+.home-slider .slick-arrow:before {
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 0 1px 1px;
+    content: "";
+    display: inline-block;
+    right: 50%;
+    top: 50%;
+    margin-left: 10px;
+    -webkit-transform: rotate(45deg) translateY(-2%) translateX(33%);
+    transform: rotate(45deg) translateY(-2%) translateX(33%);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    width: 15px;
+    height: 15px
+}
+
+.home-slider .slick-arrow.slick-next {
+    right: 15px
+}
+
+.home-slider .slick-arrow.slick-next:before {
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 0 1px 1px;
+    content: "";
+    display: inline-block;
+    right: 50%;
+    top: 50%;
+    margin-left: 10px;
+    -webkit-transform: rotate(230deg) translateY(-131%) translateX(-7%);
+    transform: rotate(230deg) translateY(-131%) translateX(-7%);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    width: 15px;
+    height: 15px
+}
+
+.home-slider .slick-arrow.slick-prev {
+    left: 15px
+}
+
+.home-slider .slick-arrow:hover {
+    background-color: #fff
+}
+
+.home-slider .slick-arrow:hover:before {
+    border-color: #000
+}
+
+.home-slider .slick-dots {
+    text-align: center;
+    position: relative;
+    transform: translateY(-40px);
+    cursor: pointer
+}
+
+.home-slider .slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #fff
+}
+
+.home-slider .slick-dots li button {
+    display: none
+}
+
+.home-slider .slick-dots li.slick-active {
+    background-color: #fff
+}
+
+.line {
+    height: 1px;
+    background-color: rgba(255, 255, 255, .1)
+}
+
+.assets h4 span {
+    font-size: .9rem;
+    opacity: .8
+}
+
+.assets a {
+    width: 100%
+}
+
+.carts h2 i {
+    transform: translateY(3px);
+    display: inline-block;
+}
+
+.carts h5 {
+    line-height: 1;
+    margin-top: 15px
+}
+
+.carts h5 .equal {
+    opacity: .8;
+    display: block
+}
+
+.exchange form .icon {
+    margin: 10px 0;
+    text-align: center;
+    cursor: pointer
+}
+
+.exchange form div i {
+    transform: rotate(90deg);
+    display: inline-block;
+    font-size: 25px
+}
+
+form input + h6 {
+    text-align: right;
+    opacity: .5;
+    margin-top: 10px;
+    font-size: 12px
+}
+
+form button {
+    width: 100%
+}
+
+form [type="radio"] {
+    display: none
+}
+
+form [type="radio"] + label {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 4px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+form [type="radio"]:checked + label {
+    color: #fff;
+    border-color: #fff;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+.exchange .detail span {
+    opacity: .7
+}
+
+.card h2 i {
+    display: inline-block;
+    transform: translateY(4px)
+}
+
+.qr img {
+    width: 70%;
+    margin: 0 15%
+}
+
+.qr + button {
+    width: 100%
+}
+
+.profits {
+    text-align: center;
+}
+
+.profits i {
+    font-size: 30px;
+    color: #33c38e
+}
+
+.profits p {
+    font-size: 25px;
+    color: #33c38e;
+    line-height: 1;
+    margin-top: 15px
+}
+
+.profits p span {
+    display: block
+}
+
+.btn-soft-primary {
+    color: #252c3b;
+    background-color: rgb(117 120 249);
+}
+
+.btn-soft-success {
+    color: #252c3b;
+    background-color: rgb(30 179 125);
+}
+
+.btn-soft-danger {
+    color: #252c3b;
+    background-color: rgb(172 34 27);
+}
+
+.auth-body-bg {
+    background-color: #0b0f1a
+}
+
+.asset-icon {
+    display: inline-block;
+    color: #29f4a0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.top-icon {
+    font-size: 2em;
+}
