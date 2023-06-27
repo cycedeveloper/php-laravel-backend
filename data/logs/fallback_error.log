@@ -1,0 +1,7 @@
+2023/06/27 13:29:48 [error] 902#902: *95 open() "/var/www/html/.env" failed (2: No such file or directory), client: 185.254.196.173, server: localhost-nginx-proxy-manager, request: "GET /.env HTTP/1.1", host: "34.228.140.64"
+2023/06/27 13:43:14 [warn] 3296#3296: 512 worker_connections are not enough, reusing connections
+2023/06/27 13:43:14 [alert] 3296#3296: 512 worker_connections are not enough
+2023/06/27 13:43:14 [error] 3297#3297: *1492 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost-nginx-proxy-manager, request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:80/favicon.ico", host: "manager.cyceservices.com", referrer: "https://manager.cyceservices.com/"
+2023/06/27 13:50:44 [warn] 176#176: 512 worker_connections are not enough, reusing connections
+2023/06/27 13:50:44 [alert] 175#175: 512 worker_connections are not enough
+2023/06/27 13:50:44 [error] 175#175: *976 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost-nginx-proxy-manager, request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:80/favicon.ico", host: "manager.cyceservices.com", referrer: "https://manager.cyceservices.com/"

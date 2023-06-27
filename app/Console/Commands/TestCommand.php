@@ -3,45 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
-use Sayedsoft\Dex\Accounting\Accounting;
-use Sayedsoft\Dex\Accounting\Helpers\AccountingTotalStore;
-use Sayedsoft\Dex\Fees\AddFee;
-use Sayedsoft\Dex\Fees\FeeCalculator;
-use Sayedsoft\Dex\Models\PaymentWallet;
-use Sayedsoft\Dex\Models\Token;
-use Sayedsoft\Dex\Token\Models\Token as ModelsToken;
-use Sayedsoft\Dex\WalletDeposit\Accounting\WalletDepositAccounting;
-use Sayedsoft\Dex\WalletDeposit\Models\PaymentWallet as ModelsPaymentWallet;
-use Sayedsoft\Dex\WalletDeposit\Models\PaymentWalletsDeposit;
-use Sayedsoft\DexWithdrawal\Accounting\WithdrawalAccounting;
-use Sayedsoft\DexWithdrawal\Base\Withdraw;
-use Sayedsoft\DexWithdrawal\Models\Withdrawal as ModelsWithdrawal;
-use Sayedsoft\ExchangeToken\Exchange\ExchangeAccounting;
-use Sayedsoft\ExchangeToken\Exchange\Helpers\CurrencyConvert;
-use Sayedsoft\ExchangeToken\ExchangeToken;
-use Sayedsoft\ReferralIncome\Income\CreateReferralIncome;
-use Sayedsoft\ReferralIncome\Models\ReferralIncomeModel;
-use Sayedsoft\ReferralUnilevel\Core\UserReferral\UnilevelChildsTreeOneLevel;
-use Sayedsoft\ReferralUnilevel\Core\UserReferral\UnilevelUserReferral;
-use Sayedsoft\ReferralUnilevel\Helpers\SposorsRefresh;
-use Sayedsoft\ReferralUnilevel\Jobs\NewChildJob;
-use Sayedsoft\ReferralUnilevel\Jobs\RefreshAllSponsors;
-use Sayedsoft\ReferralUnilevel\Models\Referral\ReferralSponsor;
-use Sayedsoft\ReferralUnilevel\Unilevel;
-use Sayedsoft\StakeToken\Career\UserCareer;
-use Sayedsoft\StakeToken\Career\UserCareerResponse;
-use Sayedsoft\StakeToken\Helpers\SaveReferralIncome;
-use Sayedsoft\StakeToken\Helpers\SetupCareer;
-use Sayedsoft\StakeToken\Helpers\StakeAccounting;
-use Sayedsoft\StakeToken\Helpers\StakePeriods;
-use Sayedsoft\StakeToken\Jobs\ReferralIncome;
-use Sayedsoft\StakeToken\Jobs\RefreshCareerJob;
-use Sayedsoft\StakeToken\Jobs\RefreshSponsorsDetailsJob;
-use Sayedsoft\StakeToken\Models\Stake;
-use Sayedsoft\StakeToken\Models\StakesPlan;
-use Sayedsoft\StakeToken\StakeToken;
 use stdClass;
 
 class TestCommand extends Command
@@ -79,15 +43,19 @@ class TestCommand extends Command
 
       public function referral($user)
       {
-          $career = new UnilevelUserReferral($user);
-
-          return $career->get($user);
+        
       }
 
     public function handle()
-    {
+    {       
+
+        $user = Admin::find(1);
+        dd($user);
         //RefreshAllSponsors::dispatch(215)->onQueue('referral');
 
+
+
+        /*
         $stakes = Stake::whereDate('created_at', '>', '2022-09-15')->confirmed()->get();
         $dates = [];
         foreach ($stakes as $stake) {

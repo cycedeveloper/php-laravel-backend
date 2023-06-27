@@ -14,10 +14,10 @@ use App\Nova\Actions\Stake\Deny;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Text;
 
-class Token extends Resource
+class tokenFiat extends Resource
 {   
 
-    public static $group = 'Exchange';
+    public static $group = 'Fiat';
 
     /**
      * The model the resource corresponds to.
@@ -52,7 +52,6 @@ class Token extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Blockcian','blockchain'),
             Text::make('Token name','token_name'),
             Text::make('Token Code','token_code'),
             Boolean::make('Has Deposit','payable'),
@@ -108,6 +107,6 @@ class Token extends Resource
 
     public static function indexQuery(NovaRequest $request, $query)
         {
-            return $query->where('token_type', 'crypto');
+            return $query->where('token_type', 'fiat');
         }
 }
