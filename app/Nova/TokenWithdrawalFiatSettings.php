@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use  Sayedsoft\DexwithdrawalFiat\Models\WithdrawalFiatTokenSettings;
+use Sayedsoft\DexWithdrawal\Models\WithdrawalTokenSettings;
 use App\Helpers\AdvancedNumber;
 
 class TokenWithdrawalFiatSettings extends Resource
@@ -17,7 +17,7 @@ class TokenWithdrawalFiatSettings extends Resource
      *
      * @var string
      */
-    public static $model = WithdrawalFiatTokenSettings::class;
+    public static $model = WithdrawalTokenSettings::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

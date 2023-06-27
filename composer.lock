@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc83a0fbe6dfc63f292fe1c51b1f5a37",
+    "content-hash": "e82030c57f154a5562303d6d61df6422",
     "packages": [
         {
             "name": "appoly/api-password-helper",
