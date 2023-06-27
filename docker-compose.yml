@@ -32,7 +32,8 @@ services:
     volumes:
       - redis:/data
 
-  nginxproxymanager:
+
+  dnsmanager:
     image: "jc21/nginx-proxy-manager:latest"
     restart: unless-stopped
     ports:
