@@ -2,32 +2,28 @@
 
 namespace App\Nova;
 
-
-use App\Helpers\AdvancedNumber;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Sayedsoft\StakeToken\Models\Career\Career;
+use Laravel\Nova\Fields\Boolean;
 
-class Careers extends Resource
+class banks extends Resource
 {   
-    public static $displayInNavigation = false;
-
-    public static $group = 'Refrral';
-    /**
+    public static $group = 'Fiat';
+    /** 
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = Career::class;
+    public static $model = \App\Models\Bank::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -48,8 +44,12 @@ class Careers extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name','name'),
-            AdvancedNumber::make('Amount profit','amount_profit')->decimals(8)->thousandsSeparator('.')->readOnly(),
+            Text::make('Bank Name','bank_name')->rules('required','min:2','max:30'),
+            Text::make('Bank Code','bank_code')->rules('required','min:2','max:30'),
+            Text::make('Default IBAN','bank iban')->rules('required','min:2','max:30'),
+            Text::make('Default IBAN Descripton','bank iban')->rules('required','min:2','max:30'),
+            Boolean::make('Payable','payable'),
+            Boolean::make('Withdrawable','withdrawable'),
         ];
     }
 
@@ -95,22 +95,5 @@ class Careers extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
-    }
-
-
-        public static function authorizedToCreate(Request $request)
-    {
-        return false;
-    }
-
-    public function authorizedToDelete(Request $request)
-    {
-        return false;
-    }
-
-
-    public function authorizedToReplicate(Request $request)
-    {
-        return false;
     }
 }

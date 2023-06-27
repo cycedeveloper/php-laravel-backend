@@ -2,30 +2,22 @@
 
 namespace App\Nova;
 
-use App\Helpers\AdvancedNumber;
-use App\Nova\Actions\Stake\Confirm;
-use App\Nova\Actions\Stake\Deny;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Sayedsoft\StakeToken\Models\Stake as ModelsStake;
+use  Sayedsoft\DexwithdrawalFiat\Models\WithdrawalFiatTokenSettings;
+use App\Helpers\AdvancedNumber;
 
-class Stake extends Resource
+class TokenWithdrawalFiatSettings extends Resource
 {   
-    public static $displayInNavigation = false;
-
-    public static $group = 'Stake';
-
+    public static $group = 'Fiat';
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = ModelsStake::class;
+    public static $model = WithdrawalFiatTokenSettings::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -53,15 +45,10 @@ class Stake extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-        //    BelongsTo::make('Plan','plan','App\Nova\StakesPlans'),
-            BelongsTo::make(__('User'), 'user','App\Nova\User')->sortable(),
-
-            AdvancedNumber::make('Amount','amount')->decimals(8)->thousandsSeparator('.')->rules('required'),
-            Boolean::make('Has Referral','has_referral'),
-            Text::make('Start date','start_date')->onlyOnIndex(), 
-            Text::make('End Date','end_date')->onlyOnIndex(),
-            Text::make('Status','status_title')->onlyOnIndex(),
-            DateTime::make('Created At','created_at')->onlyOnIndex(),
+            BelongsTo::make('Token','token','App\Nova\Token'),
+            BelongsTo::make('Fee Face','feeFace','App\Nova\FeeFaces'),
+            AdvancedNumber::make('Min Amount','min_amount')->decimals(8)->rules('required','min:1'),
+            AdvancedNumber::make('Max Amount','max_amount')->decimals(8)->rules('required','min:2'),
         ];
     }
 
@@ -106,20 +93,6 @@ class Stake extends Resource
      */
     public function actions(Request $request)
     {
-        return [
-            (new Confirm),
-            (new Deny),
-        ];
-    }
-
-
-    public static function authorizedToCreate(Request $request)
-    {
-        return false;
-    }
-
-    public function authorizedToDelete(Request $request)
-    {
-        return false;
+        return [];
     }
 }

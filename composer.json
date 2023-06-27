@@ -43,18 +43,26 @@
         {
             "type": "path",
             "url": "./packages/referral-income"
+        },
+        {
+            "type": "path",
+            "url": "./packages/withdrawal-fiat"
         }
+
+
+       
     ],
     "require": {
         "php": "^7.3|^8.0",
         "ext-bcmath": "*",
         "appoly/api-password-helper": "^2.3",
         "eminiarts/nova-tabs": "^2.1",
+        "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/horizon": "^5.10",
-        "laravel/nova": "~4.0",
+        "laravel/nova": "*",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "maatwebsite/excel": "^3.1",
@@ -69,6 +77,7 @@
         "sayedsoft/referral-tree": "*",
         "sayedsoft/referral-unilevel": "*",
         "sayedsoft/stake-token": "*",
+        "sayedsoft/dex-withdrawal-fiat": "*",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "simplesquid/nova-advanced-number-field": "*",
         "spatie/laravel-responsecache": "^7.4",

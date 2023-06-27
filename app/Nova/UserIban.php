@@ -2,37 +2,30 @@
 
 namespace App\Nova;
 
-use App\Helpers\AdvancedNumber;
-use App\Nova\Actions\Stake\Confirm;
-use App\Nova\Actions\Stake\Deny;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Sayedsoft\StakeToken\Models\Stake as ModelsStake;
+use Sayedsoft\DexwithdrawalFiat\Models\UserIban as ModelsUserIban;
 
-class Stake extends Resource
+class UserIban extends Resource
 {   
-    public static $displayInNavigation = false;
 
-    public static $group = 'Stake';
-
+    public static $group = 'Fiat';
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = ModelsStake::class;
+    public static $model =  ModelsUserIban::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'wallet';
 
     /**
      * The columns that should be searched.
@@ -41,6 +34,8 @@ class Stake extends Resource
      */
     public static $search = [
         'id',
+        'user_id',
+        'token_id',
     ];
 
     /**
@@ -53,15 +48,11 @@ class Stake extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-        //    BelongsTo::make('Plan','plan','App\Nova\StakesPlans'),
-            BelongsTo::make(__('User'), 'user','App\Nova\User')->sortable(),
-
-            AdvancedNumber::make('Amount','amount')->decimals(8)->thousandsSeparator('.')->rules('required'),
-            Boolean::make('Has Referral','has_referral'),
-            Text::make('Start date','start_date')->onlyOnIndex(), 
-            Text::make('End Date','end_date')->onlyOnIndex(),
-            Text::make('Status','status_title')->onlyOnIndex(),
-            DateTime::make('Created At','created_at')->onlyOnIndex(),
+           
+            BelongsTo::make(__('User'), 'user','App\Nova\User')->sortable()->readOnly(),
+            BelongsTo::make(__('Token'), 'token','App\Nova\Token')->sortable()->readOnly(),
+             Text::make(__('Label'), 'label')->sortable()->hideWhenUpdating(),
+            Text::make(__('Iban'), 'iban')->sortable()
         ];
     }
 
@@ -106,20 +97,6 @@ class Stake extends Resource
      */
     public function actions(Request $request)
     {
-        return [
-            (new Confirm),
-            (new Deny),
-        ];
-    }
-
-
-    public static function authorizedToCreate(Request $request)
-    {
-        return false;
-    }
-
-    public function authorizedToDelete(Request $request)
-    {
-        return false;
+        return [];
     }
 }

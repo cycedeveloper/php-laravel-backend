@@ -17,6 +17,7 @@ class Token extends Migration
             $table->id();
             $table->string('token_code');
             $table->string('token_name');
+            $table->enum('token_type', ['fiat','crypto'])->default('crypto');
             $table->string('contract_address')->nullable();
             $table->string('contract_address_test')->nullable();
             $table->string('blockchain');

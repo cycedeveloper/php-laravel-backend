@@ -16,6 +16,8 @@ use App\Helpers\AdvancedNumber;
 class StakePlans extends Resource
 {   
 
+    public static $displayInNavigation = false;
+
     public static $group = 'Stake';
     
     /**
