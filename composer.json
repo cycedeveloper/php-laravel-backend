@@ -46,7 +46,7 @@
         },
         {
             "type": "path",
-            "url": "./packages/dex-withdrawal-fiat"
+            "url": "./packages/withdrawal-fiat"
         }
 
 
